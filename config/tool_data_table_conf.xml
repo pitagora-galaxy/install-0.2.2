@@ -1,7 +1,10 @@
 <tables>
-    <!-- Pitagora -->
     <table name="bowtie2_indexes" comment_char="#">
         <columns>value, dbkey, name, path</columns>
         <file path="tool-data/bowtie2_indexes.loc" />
+    </table>
+    <table name="sailfish_custom_indexes" comment_char="#">
+        <columns>value, dbkey, name, path</columns>
+        <file path="tool-data/sailfish_index.loc" />
     </table>
 </tables>
