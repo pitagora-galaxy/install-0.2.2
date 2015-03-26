@@ -3,7 +3,7 @@
         <columns>value, dbkey, name, path</columns>
         <file path="tool-data/bowtie2_indexes.loc" />
     </table>
-    <table name="sailfish_custom_indexes" comment_char="#">
+    <table name="sailfish_index" comment_char="#">
         <columns>value, dbkey, name, path</columns>
         <file path="tool-data/sailfish_index.loc" />
     </table>
