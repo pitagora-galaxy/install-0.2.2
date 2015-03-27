@@ -1,0 +1,233 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "SailfishWF_quant_exec", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 199.83334398269653, 
+                "top": 186.18750810623169
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 201.84722948074341, 
+                "top": 282.19445085525513
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "id": 2, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200.84028673171997, 
+                "top": 387.19446611404419
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "id": 3, 
+            "input_connections": {
+                "adpaters": {
+                    "id": 0, 
+                    "output_name": "output"
+                }, 
+                "mates": {
+                    "id": 2, 
+                    "output_name": "output"
+                }, 
+                "reads": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "name": "FastqMcf", 
+            "outputs": [
+                {
+                    "name": "log", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "reads_out", 
+                    "type": "fastqsanger"
+                }, 
+                {
+                    "name": "mates_out", 
+                    "type": "fastqsanger"
+                }
+            ], 
+            "position": {
+                "left": 428.0277943611145, 
+                "top": 199.86806535720825
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/jjohnson/fastq_mcf/fastq_mcf/1.0", 
+            "tool_state": "{\"phred\": \"\\\"\\\"\", \"__page__\": 0, \"noclip\": \"\\\"False\\\"\", \"__rerun_remap_job_id__\": null, \"reads\": \"null\", \"mates\": \"null\", \"adpaters\": \"null\", \"chromInfo\": \"\\\"/usr/local/galaxy2/galaxy-dist/tool-data/shared/ucsc/chrom/?.len\\\"\", \"trimming\": \"{\\\"nmax\\\": \\\"\\\", \\\"qthr\\\": \\\"\\\", \\\"scale\\\": \\\"\\\", \\\"qwin\\\": \\\"\\\", \\\"rmns\\\": \\\"False\\\", \\\"pctns\\\": \\\"\\\", \\\"ilv3\\\": \\\"\\\", \\\"sampcnt\\\": \\\"\\\", \\\"nkeep\\\": \\\"36\\\", \\\"pctdiff\\\": \\\"\\\", \\\"skewpct\\\": \\\"4.0\\\", \\\"__current_case__\\\": 2, \\\"minpct\\\": \\\"\\\", \\\"choice\\\": \\\"user_set\\\", \\\"nmin\\\": \\\"\\\"}\"}", 
+            "tool_version": "1.0", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "4": {
+            "annotation": "", 
+            "id": 4, 
+            "input_connections": {
+                "input_file": {
+                    "id": 3, 
+                    "output_name": "reads_out"
+                }
+            }, 
+            "inputs": [], 
+            "name": "FastQC:Read QC", 
+            "outputs": [
+                {
+                    "name": "html_file", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "text_file", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 873.0277943611145, 
+                "top": 201.864586353302
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/0.62", 
+            "tool_state": "{\"__page__\": 0, \"limits\": \"null\", \"input_file\": \"null\", \"__rerun_remap_job_id__\": null, \"out_prefix\": \"\\\"FastQC\\\"\", \"contaminants\": \"null\", \"chromInfo\": \"\\\"/usr/local/galaxy2/galaxy-dist/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "0.62", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "5": {
+            "annotation": "", 
+            "id": 5, 
+            "input_connections": {
+                "input_file": {
+                    "id": 3, 
+                    "output_name": "mates_out"
+                }
+            }, 
+            "inputs": [], 
+            "name": "FastQC:Read QC", 
+            "outputs": [
+                {
+                    "name": "html_file", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "text_file", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 877.02089738845825, 
+                "top": 423.86112260818481
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/0.62", 
+            "tool_state": "{\"__page__\": 0, \"limits\": \"null\", \"input_file\": \"null\", \"__rerun_remap_job_id__\": null, \"out_prefix\": \"\\\"FastQC\\\"\", \"contaminants\": \"null\", \"chromInfo\": \"\\\"/usr/local/galaxy2/galaxy-dist/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "0.62", 
+            "type": "tool", 
+            "user_outputs": []
+        }, 
+        "6": {
+            "annotation": "", 
+            "id": 6, 
+            "input_connections": {
+                "single_or_paired|input_mate1": {
+                    "id": 3, 
+                    "output_name": "reads_out"
+                }, 
+                "single_or_paired|input_mate2": {
+                    "id": 3, 
+                    "output_name": "mates_out"
+                }
+            }, 
+            "inputs": [], 
+            "name": "Sailfish_custom", 
+            "outputs": [
+                {
+                    "name": "log", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "quant", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "quant_bias_corrected", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "reads_count_info", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 879.43752288818359, 
+                "top": 627.94446563720703
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "sailfish_custom", 
+            "tool_state": "{\"single_or_paired\": \"{\\\"__current_case__\\\": 1, \\\"orientation\\\": \\\"toward\\\", \\\"input_mate1\\\": null, \\\"single_or_paired_opts\\\": \\\"paired\\\", \\\"strandedness\\\": \\\"unknown\\\", \\\"input_mate2\\\": null}\", \"__page__\": 0, \"__rerun_remap_job_id__\": null, \"index_path\": \"\\\"sfindex_hg19_cdna_all\\\"\"}", 
+            "tool_version": "0.01", 
+            "type": "tool", 
+            "user_outputs": []
+        }
+    }
+}
